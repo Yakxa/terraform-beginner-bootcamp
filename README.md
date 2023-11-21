@@ -2,7 +2,7 @@
 
 ## SEMANTIC VERSIONING
 
-Este projeto utilizará versionamento semantico para suas tags
+Este projeto utilizará versionamento semantico para suas tags :mage:
 
 [semver.org](https://semver.org/)
 
