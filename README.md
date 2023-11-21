@@ -73,3 +73,45 @@ https://en.wikipedia.org/wiki/Chmod
 É preciso tomar cuidado ao usar o init porque não rodará se um workspace for reiniciado.
 
 [Gitpod Lifecycle](https://www.gitpod.io/docs/configure/workspaces/tasks)
+
+### Usando Env Vars
+
+#### env command
+
+Podemos listar todas as variáveis de ambiente usando o comando `env`
+
+Também podemos filtrar variáveis específicas usando o grep, ex: `env | grep AWS`
+
+Além de definir essas variáveis dentro do script bash, podemos também setar elas no terminal: 
+
+Definir no script
+```sh
+PROJECT_ROOT='/workspace/terraform-beginner-bootcamp'
+```
+
+Setar no terminal
+```sh
+export PROJECT_ROOT='/workspace/terraform-beginner-bootcamp'
+```
+
+Printar com `echo $PROJECT_ROOT`
+
+E fazer unset com `unset PROJECT_ROOT`
+
+#### Escopo de Env Vars
+
+Ao abrir outros terminais bash no VSCode este não terá acesso às variáveis criadas no terminal original.
+
+Se você quer que a Env Var persista em todos os terminais bash você tem que setar as Env Vars no seu profile bash, ex: `.bash_profile`
+
+#### Persistindo Env Vars no Gitpod
+
+É possível persistir as variáveis de ambiente no gitpod armazenando-as no Gitpod Secrets Storage
+
+```
+gp env HELLO=`world`
+```
+
+Todos os futuros workspaces vão setar as env vars para todos os terminais bash abertos nesses workspaces.
+
+Também dá pra star env vars no `.gitpod.yml` mas só as não sensíveis.
