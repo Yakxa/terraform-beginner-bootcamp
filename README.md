@@ -136,3 +136,44 @@ Se der certo, uma payload json deste jeito será retornada
     "Arn": "arn:aws:iam::123456789012:user/terraform-bootcamp"
 }
 ```
+
+## Terraform Basics
+
+### Terraform Registry
+
+Lugar onde tem a documentação de providers e módulos de Terraform, localizado em [registry.terraform.io](https://registry.terraform.io/)
+
+- **Providers**: interface para APIs que possui explicações e exemplos de como criar resources em terraform.
+- **Modules**: método de refatorar ou criar várias linhas de código em terraform de forma modular, portável e para compartilhar.
+
+### Terraform Console
+
+Digitando terraform todos os comandos possíveis são exibidos.
+
+#### terraform init
+
+Ao iniciar um novo projeto terraform este é o primeiro comando, `terraform init` para baixar os binários do provider que será utilizado. Por exemplo: [Random Terraform Provider](https://registry.terraform.io/providers/hashicorp/random/).
+
+#### terraform plan
+
+Gera um changeset do estado da infra e o que será mudado.
+
+#### terraform apply
+
+Roda o terraform plan e passa as mudanças para serem executadas. Apply geralmente pede uma autorização, utilizar o --auto-approve passa por esta etapa.
+
+#### Terraform Lock Files
+
+`.terrafom.lock.hcl` contém o versionamento lockado dos providers ou modules utilizados no projeto.
+O terraform lock file **tem que ser commitado pro git**.
+
+#### Terraform State File
+
+`.terraform.tfstate` é um json que contém o estado atual da sua infra. 
+Este arquivo **não deve ser commitado**. O motivo é porque tem dados sensíveis. Ao perder este arquivo você perde o estado atual da infra.
+ 
+`.terraform.tfstate.backup` é o estado anterior.
+
+#### Terraform Directory
+
+`.terraform` contém os binários do terraform providers.
