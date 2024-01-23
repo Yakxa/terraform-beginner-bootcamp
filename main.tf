@@ -10,6 +10,14 @@ terraform {
     }
   
   }
+
+    cloud {
+    organization = "yakxa"
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
+
 }
 
 provider "aws" {
